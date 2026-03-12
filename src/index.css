@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'CS Balmenti';
+  src: url('./fonts/CSBalmenti-Regular.otf') format('opentype'),
+       url('./fonts/CSBalmenti-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CS Balmenti';
+  src: url('./fonts/CSBalmenti-Italic.otf') format('opentype'),
+       url('./fonts/CSBalmenti-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CS Balmenti Reverse Italic';
+  src: url('./fonts/CSBalmenti-ReverseItalic.otf') format('opentype'),
+       url('./fonts/CSBalmenti-ReverseItalic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CS Glodive';
+  src: url('./fonts/CSGlodive-Regular.otf') format('opentype'),
+       url('./fonts/CSGlodive-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CS Glodive';
+  src: url('./fonts/CSGlodive-Italic.otf') format('opentype'),
+       url('./fonts/CSGlodive-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CS Glodive Reverse Italic';
+  src: url('./fonts/CSGlodive-ReverseItalic.otf') format('opentype'),
+       url('./fonts/CSGlodive-ReverseItalic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --color-primary: #1E79F7;
+  --color-secondary: #E5E5E5;
+  --color-neutral-light: #D9E9FF;
+  --color-neutral-dark: #171717;
+  --color-accent-green: #52AF33;
+  --color-accent-yellow: #FFB800;
+  --color-accent-red: #F03009;
+
+  --font-header: 'CS Balmenti', Georgia, serif;
+  --font-body: 'CS Glodive', Inter, ui-sans-serif, system-ui, sans-serif;
+  
+  /* Keep heading for backward compatibility with existing components */
+  --font-heading: 'CS Balmenti', Georgia, serif;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-neutral-dark);
+  background-color: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-header);
+}
