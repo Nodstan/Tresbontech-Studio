@@ -13,6 +13,8 @@ import WhyChooseUs from './components/WhyChooseUs';
 import Testimonials from './components/Testimonials';
 import ScrollToTop from './components/ScrollToTop';
 import { GraduationCap, Code2 } from 'lucide-react';
+import StudioPage from './pages/StudioPage';
+import AboutPage from './pages/AboutPage';
 
 // Temporary component for the home page content that isn't the hero
 function HomeContent() {
@@ -105,6 +107,9 @@ export default function App() {
             <Route path="/" element={<HomeContent />} />
             <Route path="/academy" element={<AcademyPage />} />
             <Route path="*" element={<HomeContent />} />
+            <Route path="studio" element={<StudioPage/>} />
+            <Route path="about" element={<AboutPage/>} />
+
           </Routes>
         </main>
 
