@@ -13,9 +13,9 @@ export default function Logo({ textColor = 'text-white', label = 'TRESBONTECH' }
         <span className="font-heading font-bold text-xl tracking-tighter uppercase leading-none">
           {label}
         </span>
-        <span className="text-[10px] tracking-[0.2em] opacity-60 uppercase">
+        {/* <span className="text-[10px] tracking-[0.2em] opacity-60 uppercase">
           Since 2024
-        </span>
+        </span> */}
       </div>
     </div>
   );

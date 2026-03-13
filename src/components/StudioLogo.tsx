@@ -18,9 +18,9 @@ export default function Logo({ className = '', textColor = 'text-[#171717]' }: L
         <span className="font-header font-bold text-2xl tracking-tight uppercase">
           STUDIO
         </span>
-        <span className="font-body text-xs tracking-widest opacity-80 uppercase">
+        {/* <span className="font-body text-xs tracking-widest opacity-80 uppercase">
           SINCE 2024
-        </span>
+        </span> */}
       </div>
     </div>
   );
