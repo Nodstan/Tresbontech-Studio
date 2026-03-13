@@ -47,8 +47,9 @@ Remove-Item -Recurse -Force dist
 
 See [.env.example](./.env.example).
 
-- `GEMINI_API_KEY` — injected into the Vite build via `vite.config.ts` (`process.env.GEMINI_API_KEY`)
 - `APP_URL` — documented for deployment environments
+
+This project is currently a client-only site; avoid placing secret API keys in Vite environment variables unless you are comfortable shipping them to the browser.
 
 ## Project Structure
 
