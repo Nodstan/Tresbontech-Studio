@@ -1,8 +1,11 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import AcademyPage from './pages/AcademyPage';
+import CoursesPage from './pages/CoursesPage';
+import ProjectsPage from './pages/ProjectsPage';
+import ContactPage from './pages/ContactPage';
 import DivisionCard from './components/DivisionCard';
 import WhyChooseUs from './components/WhyChooseUs';
 import Testimonials from './components/Testimonials';
@@ -10,6 +13,11 @@ import ScrollToTop from './components/ScrollToTop';
 import { GraduationCap, Code2 } from 'lucide-react';
 import StudioPage from './pages/StudioPage';
 import AboutPage from './pages/AboutPage';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import PortalPage from './pages/PortalPage';
+import AdmissionsPage from './pages/AdmissionsPage';
+import { AuthProvider } from './contexts/AuthContext';
 
 // Temporary component for the home page content that isn't the hero
 function HomeContent() {
@@ -59,6 +67,7 @@ function HomeContent() {
                 icon={<Code2 size={32} />}
                 color="accent-green"
                 delay={0.3}
+                linkTo="/studio"
               />
             </div>
           </div>
@@ -80,9 +89,9 @@ function HomeContent() {
             <button className="w-full sm:w-auto bg-white text-primary px-8 py-4 rounded-full font-bold hover:bg-neutral-light transition-all shadow-lg">
               Book a Discovery Call
             </button>
-            <button className="w-full sm:w-auto bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition-all">
+            <Link to="/contact" className="w-full sm:w-auto bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition-all inline-block">
               Contact Us
-            </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -90,26 +99,43 @@ function HomeContent() {
   );
 }
 
+function AppLayout() {
+  const location = useLocation();
+  const isPortal = location.pathname.startsWith('/portal');
+
+  return (
+    <div className="min-h-screen bg-white font-body flex flex-col">
+      {!isPortal && <Header />}
+      
+      <main className="flex-grow">
+        <Routes>
+          <Route path="/" element={<HomeContent />} />
+          <Route path="/academy" element={<AcademyPage />} />
+          <Route path="/admissions" element={<AdmissionsPage />} />
+          <Route path="/courses" element={<CoursesPage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/portal" element={<PortalPage />} />
+          <Route path="*" element={<HomeContent />} />
+          <Route path="studio" element={<StudioPage/>} />
+          <Route path="about" element={<AboutPage/>} />
+        </Routes>
+      </main>
+
+      {!isPortal && <Footer />}
+    </div>
+  );
+}
+
 export default function App() {
   return (
-    <Router>
-      <ScrollToTop />
-      <div className="min-h-screen bg-white font-body flex flex-col">
-        <Header />
-        
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<HomeContent />} />
-            <Route path="/academy" element={<AcademyPage />} />
-            <Route path="*" element={<HomeContent />} />
-            <Route path="studio" element={<StudioPage/>} />
-            <Route path="about" element={<AboutPage/>} />
-
-          </Routes>
-        </main>
-
-        <Footer />
-      </div>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <ScrollToTop />
+        <AppLayout />
+      </Router>
+    </AuthProvider>
   );
 }

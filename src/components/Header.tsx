@@ -67,6 +67,7 @@ export default function Header() {
             <Link to="/academy" className={`${navLinkColor()} transition-colors`}>Academy</Link>
             <Link to="/studio" className={`${navLinkColor()} transition-colors`}>Studio</Link>
             <Link to="/contact" className={`${navLinkColor()} transition-colors`}>Contact</Link>
+            <Link to="/login" className={`${navLinkColor()} transition-colors`}>Login</Link>
           </nav>
 
           <div className="hidden md:flex">
@@ -84,6 +85,25 @@ export default function Header() {
           </div>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="md:hidden bg-primary border-t border-white/10">
+          <div className="px-4 pt-2 pb-6 space-y-1">
+            <Link to="/" onClick={() => setIsOpen(false)} className="block px-3 py-3 text-white font-bold uppercase tracking-widest text-xs hover:bg-white/10 rounded-md">Home</Link>
+            <Link to="/about" onClick={() => setIsOpen(false)} className="block px-3 py-3 text-white font-bold uppercase tracking-widest text-xs hover:bg-white/10 rounded-md">About</Link>
+            <Link to="/academy" onClick={() => setIsOpen(false)} className="block px-3 py-3 text-white font-bold uppercase tracking-widest text-xs hover:bg-white/10 rounded-md">Academy</Link>
+            <Link to="/studio" onClick={() => setIsOpen(false)} className="block px-3 py-3 text-white font-bold uppercase tracking-widest text-xs hover:bg-white/10 rounded-md">Studio</Link>
+            <Link to="/contact" onClick={() => setIsOpen(false)} className="block px-3 py-3 text-white font-bold uppercase tracking-widest text-xs hover:bg-white/10 rounded-md">Contact</Link>
+            <Link to="/login" onClick={() => setIsOpen(false)} className="block px-3 py-3 text-white font-bold uppercase tracking-widest text-xs hover:bg-white/10 rounded-md">Login</Link>
+            <div className="pt-4 px-3">
+              <button className="w-full bg-white text-primary px-6 py-3 rounded-full text-[10px] font-bold uppercase tracking-widest">
+                Get in Touch
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
