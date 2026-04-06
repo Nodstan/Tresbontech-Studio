@@ -278,10 +278,10 @@ const AcademyPage: React.FC = () => {
 
           <div className="text-center">
             <Link
-              to="/projects"
+              to="/courses"
               className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors font-medium"
             >
-              View All Projects
+              View All Courses
               <ArrowRight className="ml-2 w-5 h-5" />
             </Link>
           </div>
